@@ -12,7 +12,7 @@ homepage = "https://libopenraw.freedesktop.org/exempi/"
 
 [dependencies]
 libc = "0.2"
-libz-sys = "1.0.25"
+libz-sys = {version = "1.0.25", features=["static"] }
 expat-sys = "2.1.6"
 
 [build-dependencies]
