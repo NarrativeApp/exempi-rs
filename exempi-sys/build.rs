@@ -16,7 +16,7 @@ fn main() {
     }
 
     let libz_root = env::var("DEP_Z_ROOT").expect("Couldn't find zlib build root");
-    let expat_root = env::var("DEP_EXPAT_ROOT").expect("Couldn't find expat build root");
+    let expat_root = env::var("DEP_EXPAT_OUTDIR").expect("Couldn't find expat build root");
 
     println!(
         "cargo:rustc-link-search={:?}",
