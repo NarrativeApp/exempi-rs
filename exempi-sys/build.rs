@@ -10,13 +10,7 @@ fn main() {
         }
     }
     println!("cargo:rustc-link-lib=expat");
-    match pkg_config::Config::new().statik(true).probe("zlib") {
-        Ok(_) => (),
-        Err(e) => {
-            println!("cargo:warning=zlib not found");
-            panic!(e);
-        }
-    }
+    println!("cargo:rustc-link-lib=zlib");
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
     if target_os == "macos" {
         println!("cargo:rustc-link-lib=c++");
