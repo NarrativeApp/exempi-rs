@@ -12,6 +12,8 @@ homepage = "https://libopenraw.freedesktop.org/exempi/"
 
 [dependencies]
 libc = "0.2"
+libz-sys = "1.0.25"
+expat-sys = "2.1.6"
 
 [build-dependencies]
 pkg-config = "0.3"
