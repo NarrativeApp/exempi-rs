@@ -15,17 +15,23 @@ fn main() {
         }
     }
 
-    let libz_root = env::var("DEP_Z_ROOT").expect("Couldn't find zlib build root");
-    let expat_root = env::var("DEP_EXPAT_OUTDIR").expect("Couldn't find expat build root");
+    if let Ok(libz_root) = env::var("DEP_Z_ROOT") {
+        println!(
+            "cargo:rustc-link-search={:?}",
+            Path::new(&libz_root).join("build")
+        );
+    } else {
+        println!("cargo:warning=Couldn't find zlib build root, assuming there's a built-in installation of zlib")
+    }
+    if let Ok(expat_root) = env::var("DEP_EXPAT_OUTDIR") {
+        println!(
+            "cargo:rustc-link-search={:?}",
+            Path::new(&expat_root).join("lib")
+        );
+    } else {
+        println!("cargo:warning=Couldn't find expat build root, assuming there's a built-in installation of expat")
+    }
 
-    println!(
-        "cargo:rustc-link-search={:?}",
-        Path::new(&libz_root).join("build")
-    );
-    println!(
-        "cargo:rustc-link-search={:?}",
-        Path::new(&expat_root).join("lib")
-    );
     println!("cargo:rustc-link-lib=static=expat");
     println!("cargo:rustc-link-lib=static=z");
 
