@@ -32,8 +32,8 @@ fn main() {
         println!("cargo:warning=Couldn't find expat build root, assuming there's a built-in installation of expat")
     }
 
-    println!("cargo:rustc-link-lib=static=expat");
-    println!("cargo:rustc-link-lib=static=z");
+    println!("cargo:rustc-link-lib=dylib=expat");
+    println!("cargo:rustc-link-lib=dylib=z");
 
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
     if target_os == "macos" {
