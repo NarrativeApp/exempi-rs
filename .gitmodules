@@ -1,0 +1,3 @@
+[submodule "src/exempi"]
+	path = exempi-sys/src/exempi
+	url = https://github.com/hfiguiere/exempi.git
