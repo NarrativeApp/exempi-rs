@@ -19,6 +19,7 @@ fn build_exempi() {
 
     let dst = autotools::Config::new("src/exempi")
         .reconf("-ivf")
+        .disable("unittest", None)
         .build();
 
     println!(
