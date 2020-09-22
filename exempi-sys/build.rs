@@ -8,8 +8,11 @@ fn link_static() {
 
     let target_os = env::var("CARGO_CFG_TARGET_OS").unwrap();
     if target_os == "macos" {
+        println!("cargo:rustc-link-lib=c++");
         println!("cargo:rustc-link-lib=framework=CoreFoundation");
         println!("cargo:rustc-link-lib=framework=CoreServices");
+    } else {
+        println!("cargo:rustc-link-lib=stdc++");
     }
 }
 
