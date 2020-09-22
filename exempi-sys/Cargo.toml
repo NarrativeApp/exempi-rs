@@ -10,10 +10,11 @@ repository = "https://github.com/hfiguiere/exempi-rs"
 homepage = "https://libopenraw.freedesktop.org/exempi/"
 
 [features]
-static = ["autotools"]
+static = ["autotools", "link-cplusplus"]
 
 [dependencies]
 libc = "0.2"
+link-cplusplus = { version = "1.0", optional = true }
 
 [build-dependencies]
 pkg-config = "0.3"
